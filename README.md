@@ -3,4 +3,4 @@
 projet découverte Unity (2021)
 
 ## screenshots
-<img src="Readme/Image rendu.jpg">
+<img src="Readme/Image new.png">
