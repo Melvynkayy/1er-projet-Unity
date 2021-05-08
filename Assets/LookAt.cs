@@ -11,7 +11,12 @@ public class LookAt : MonoBehaviour
     void Update() 
     {
         if (target != null) {
-            transform.LookAt(target);
+            //transform.LookAt(target);
+            float x = target.position.x;
+            float y = target.position.y + 10;
+            float z = target.position.z - 15;
+            Camera.main.transform.position = new Vector3(x, y, z);
+    
         }
 
         if (lookAtCamera == true) {
