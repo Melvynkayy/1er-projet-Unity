@@ -7,6 +7,7 @@ public class PlayerCube : MonoBehaviour
     public bool isControlled = false;
     public float speed = 2f;
     public float jumpSpeed = 20f;
+    private bool isOnGround = true;
 
     Rigidbody body;
 
@@ -29,12 +30,19 @@ public class PlayerCube : MonoBehaviour
         float y = body.velocity.y;
         float z = speed * Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true) 
         {
             y = jumpSpeed;
+            isOnGround=false;
         }
 
         body.velocity = new Vector3(x, y, z);
+    }
+    
+    void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "Sol") {
+            isOnGround=true;
+        }
     }
 
     void Start()
